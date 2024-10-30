@@ -1,18 +1,18 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { createHashRouter, Navigate, RouterProvider } from 'react-router-dom';
 import forwards from './assets/forwards.mp3';
 import left from './assets/left.mp3';
 import right from './assets/right.mp3';
 import stop from './assets/stop.mp3';
 import './index.css';
-import { createHashRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import {
   ArrowBigLeft,
   ArrowBigRight,
   ArrowBigUp,
   Octagon,
-  Wifi,
+  Rocket,
 } from 'lucide-react';
 import { cn } from './utils';
 
@@ -111,7 +111,7 @@ const router = createHashRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <div className='fixed inset-0 background opacity-30' />
+    <div className='fixed inset-0 background opacity-50' />
     <div className='h-full text-white relative flex items-center justify-center flex-col'>
       <div className='rounded-full bg-red-600 size-32 translate-y-8 shadow-md z-20'>
         <div
@@ -120,8 +120,8 @@ createRoot(document.getElementById('root')!).render(
         ></div>
       </div>
       <div className='h-32 w-12 bg-neutral-800 shadow-gray relative'></div>
-      <div className='z-20 flex relative flex-col items-center pt-0 p-8 rounded-lg shadow-gray bg-gradient-to-b from-neutral-800 to-neutral-900 justify-center gap-4 '>
-        <Wifi className='size-[15vh]' />
+      <div className='z-20 flex relative flex-col items-center p-8 rounded-lg shadow-gray bg-gradient-to-b from-neutral-800 to-neutral-900 justify-center gap-4 '>
+        <Rocket className='size-24 text-black' />
         <RouterProvider router={router} />
       </div>
     </div>
