@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createHashRouter, Navigate, RouterProvider } from 'react-router-dom';
-import forwards from './assets/forwards.mp3';
-import left from './assets/left.mp3';
-import right from './assets/right.mp3';
-import stop from './assets/stop.mp3';
+import forward from './assets/forward.m4a';
+import left from './assets/left.m4a';
+import right from './assets/right.m4a';
+import stop from './assets/stop.m4a';
 import './index.css';
 
 import {
@@ -67,7 +67,7 @@ const Left = () => {
 const Forward = () => {
   return (
     <Button
-      onClick={() => new Audio(forwards).play()}
+      onClick={() => new Audio(forward).play()}
       className='from-blue-600 to-blue-800 shadow-blue '
     >
       FORWARD <ArrowBigUp className='size-16 fill-current' />
