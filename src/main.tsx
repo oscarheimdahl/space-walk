@@ -120,22 +120,22 @@ const Stop = () => {
 const router = createBrowserRouter([
   {
     path: '*',
-    element: <Navigate replace to={'/right'} />,
+    element: <Navigate replace to={`${import.meta.env.BASE_URL}right`} />,
   },
   {
-    path: '/right',
+    path: `${import.meta.env.BASE_URL}right`,
     element: <Right />,
   },
   {
-    path: '/left',
+    path: `${import.meta.env.BASE_URL}left`,
     element: <Left />,
   },
   {
-    path: '/forward',
+    path: `${import.meta.env.BASE_URL}forward`,
     element: <Forward />,
   },
   {
-    path: '/stop',
+    path: `${import.meta.env.BASE_URL}stop`,
     element: <Stop />,
   },
 ]);
