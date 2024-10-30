@@ -30,7 +30,7 @@ const Button = ({
       onClick={onClick}
       className={cn(
         'p-6 relative select-none flex gap-2 items-center transition-all shadow-red',
-        'active:shadow-active active:translate-x-2 active:translate-y-2 font-bold text-5xl rounded-md',
+        'active:shadow-active active:translate-x-2 active:translate-y-2 font-bold text-4xl rounded-md',
         'bg-gradient-to-br from-red-600 to-red-800',
         className
       )}
@@ -113,13 +113,17 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <div className='fixed inset-0 background opacity-30' />
     <div className='h-full text-white relative flex items-center justify-center flex-col'>
-      <div className='rounded-full bg-black size-32 absolute top-1/2 left-1/2 -translate-y-[344px] -translate-x-[calc(50%-8px)] '></div>
+      <div className='rounded-full bg-red-600 size-32 translate-y-8 shadow-md z-20'>
+        <div
+          style={{ animationDuration: '3000ms' }}
+          className='size-full rounded-full animate-ping ring-4 ring-red-200'
+        ></div>
+      </div>
       <div className='h-32 w-12 bg-neutral-800 shadow-gray relative'></div>
-      <div className='z-20 flex relative flex-col items-center p-8 rounded-lg shadow-gray bg-neutral-800 justify-center gap-4 '>
+      <div className='z-20 flex relative flex-col items-center pt-0 p-8 rounded-lg shadow-gray bg-gradient-to-b from-neutral-800 to-neutral-900 justify-center gap-4 '>
         <Wifi className='size-[15vh]' />
         <RouterProvider router={router} />
       </div>
-      <div className='rounded-full bg-red-600 size-32 absolute top-1/2 left-1/2 -translate-y-[352px] -translate-x-1/2 '></div>
     </div>
   </StrictMode>
 );
