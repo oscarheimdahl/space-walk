@@ -112,10 +112,14 @@ const router = createHashRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <div className='fixed inset-0 background opacity-30' />
-    <div className='h-full text-white relative grid place-content-center top-32'>
-      <Wifi className='size-[15vh] text-white absolute top-[5%] left-1/2 -translate-x-1/2' />
-      <div className='h-1/3 w-12 bg-gradient-to-t from-gray-600 to-gray-500  rounded-t-full absolute top-[16.666%] left-1/2 -translate-x-1/2'></div>
-      <RouterProvider router={router} />
+    <div className='h-full text-white relative flex items-center justify-center flex-col'>
+      <div className='rounded-full bg-black size-32 absolute top-1/2 left-1/2 -translate-y-[344px] -translate-x-[calc(50%-8px)] '></div>
+      <div className='h-32 w-12 bg-neutral-800 shadow-gray relative'></div>
+      <div className='z-20 flex relative flex-col items-center p-8 rounded-lg shadow-gray bg-neutral-800 justify-center gap-4 '>
+        <Wifi className='size-[15vh]' />
+        <RouterProvider router={router} />
+      </div>
+      <div className='rounded-full bg-red-600 size-32 absolute top-1/2 left-1/2 -translate-y-[352px] -translate-x-1/2 '></div>
     </div>
   </StrictMode>
 );
