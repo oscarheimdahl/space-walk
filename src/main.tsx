@@ -1,6 +1,10 @@
 import { StrictMode, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
+import right from './assets/right.mp3';
+import left from './assets/left.mp3';
+import forwards from './assets/forwards.mp3';
+import stop from './assets/stop.mp3';
 // import App from './App.tsx';
 import {
   createBrowserRouter,
@@ -57,7 +61,7 @@ const useAudio = (src: string) => {
 };
 
 const Right = () => {
-  const { element, play } = useAudio('/src/assets/right.mp3');
+  const { element, play } = useAudio(right);
 
   return (
     <>
@@ -72,7 +76,7 @@ const Right = () => {
   );
 };
 const Left = () => {
-  const { element, play } = useAudio('/src/assets/left.mp3');
+  const { element, play } = useAudio(left);
   return (
     <>
       {element}
@@ -88,7 +92,7 @@ const Left = () => {
 };
 
 const Forward = () => {
-  const { element, play } = useAudio('/src/assets/forwards.mp3');
+  const { element, play } = useAudio(forwards);
 
   return (
     <>
@@ -101,7 +105,7 @@ const Forward = () => {
 };
 
 const Stop = () => {
-  const { element, play } = useAudio('/src/assets/stop.mp3');
+  const { element, play } = useAudio(stop);
 
   return (
     <>
