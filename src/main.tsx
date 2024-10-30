@@ -1,11 +1,10 @@
-import { StrictMode, useRef } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import forwards from './assets/forwards.mp3';
 import left from './assets/left.mp3';
 import right from './assets/right.mp3';
 import stop from './assets/stop.mp3';
 import './index.css';
-// import App from './App.tsx';
 import { createHashRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import {
@@ -41,29 +40,11 @@ const Button = ({
   );
 };
 
-const useAudio = (src: string) => {
-  const audio = useRef<HTMLAudioElement>(null);
-
-  const play = () => {
-    if (!audio.current) return;
-    audio.current.currentTime = 0;
-    audio.current.play();
-  };
-
-  return {
-    element: <audio ref={audio} src={src} />,
-    play,
-  };
-};
-
 const Right = () => {
-  const { element, play } = useAudio(right);
-
   return (
     <>
-      {element}
       <Button
-        onClick={() => play()}
+        onClick={() => new Audio(right).play()}
         className='from-yellow-600 to-yellow-800 shadow-yellow '
       >
         RIGHT <ArrowBigRight className='size-16 fill-current' />
@@ -72,48 +53,39 @@ const Right = () => {
   );
 };
 const Left = () => {
-  const { element, play } = useAudio(left);
   return (
-    <>
-      {element}
-      <Button
-        onClick={play}
-        className='from-green-600 to-green-800 shadow-green '
-      >
-        LEFT
-        <ArrowBigLeft className='size-16 fill-current' />
-      </Button>
-    </>
+    <Button
+      onClick={() => new Audio(left).play()}
+      className='from-green-600 to-green-800 shadow-green '
+    >
+      LEFT
+      <ArrowBigLeft className='size-16 fill-current' />
+    </Button>
   );
 };
 
 const Forward = () => {
-  const { element, play } = useAudio(forwards);
-
   return (
-    <>
-      {element}
-      <Button onClick={play} className='from-blue-600 to-blue-800 shadow-blue '>
-        FORWARD <ArrowBigUp className='size-16 fill-current' />
-      </Button>
-    </>
+    <Button
+      onClick={() => new Audio(forwards).play()}
+      className='from-blue-600 to-blue-800 shadow-blue '
+    >
+      FORWARD <ArrowBigUp className='size-16 fill-current' />
+    </Button>
   );
 };
 
 const Stop = () => {
-  const { element, play } = useAudio(stop);
-
   return (
-    <>
-      {element}
-      <Button onClick={play} className='from-red-600 to-red-800 shadow-red '>
-        STOP <Octagon className='size-16 fill-red-600' />
-      </Button>
-    </>
+    <Button
+      onClick={() => new Audio(stop).play()}
+      className='from-red-600 to-red-800 shadow-red '
+    >
+      STOP <Octagon className='size-16 fill-red-600' />
+    </Button>
   );
 };
 
-console.log(import.meta.env.BASE_URL);
 const router = createHashRouter([
   {
     path: '*',
