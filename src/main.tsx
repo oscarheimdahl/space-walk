@@ -1,16 +1,12 @@
 import { StrictMode, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import right from './assets/right.mp3';
-import left from './assets/left.mp3';
 import forwards from './assets/forwards.mp3';
+import left from './assets/left.mp3';
+import right from './assets/right.mp3';
 import stop from './assets/stop.mp3';
+import './index.css';
 // import App from './App.tsx';
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from 'react-router-dom';
+import { createHashRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import {
   ArrowBigLeft,
@@ -117,25 +113,26 @@ const Stop = () => {
   );
 };
 
-const router = createBrowserRouter([
+console.log(import.meta.env.BASE_URL);
+const router = createHashRouter([
   {
     path: '*',
-    element: <Navigate replace to={`${import.meta.env.BASE_URL}right`} />,
+    element: <Navigate replace to={`right`} />,
   },
   {
-    path: `${import.meta.env.BASE_URL}right`,
+    path: `right`,
     element: <Right />,
   },
   {
-    path: `${import.meta.env.BASE_URL}left`,
+    path: `left`,
     element: <Left />,
   },
   {
-    path: `${import.meta.env.BASE_URL}forward`,
+    path: `forward`,
     element: <Forward />,
   },
   {
-    path: `${import.meta.env.BASE_URL}stop`,
+    path: `stop`,
     element: <Stop />,
   },
 ]);
